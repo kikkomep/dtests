@@ -13,6 +13,12 @@ pipeline {
       steps {
         sh 'git fetch --tags'
         sh 'printenv'
+        script {
+          currentBuild.upstreamBuilds?.each { b ->
+              echo b.getFullProjectName()
+              echo b.getRawBuild()
+          }
+        }
       }
     }
   }
