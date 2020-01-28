@@ -16,7 +16,7 @@ pipeline {
         script {
           currentBuild.upstreamBuilds?.each { b ->
               echo b.getFullProjectName()
-              echo b.getRawBuild()
+              // echo b.getRawBuild()
           }
         }
       }
