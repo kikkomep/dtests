@@ -22,6 +22,7 @@ pipeline {
       echo 'One way or another, I have finished'
     }
     success {
+      echo "OK"
     }
     unstable {
       echo 'I am unstable :/'
@@ -30,6 +31,7 @@ pipeline {
       echo 'I failed :('
     }
     cleanup {
+      echo "Cleaning"
     }
   } 
 }
