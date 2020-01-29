@@ -21,6 +21,9 @@ pipeline {
               }
 
               def rb = b.getRawBuild()
+              for(EnvVars e: rb.getCharacteristicEnvVars()){
+                println e
+              }
           }
         }
       }
