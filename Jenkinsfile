@@ -38,6 +38,12 @@ pipeline {
 
 
     stage('Use configured variable') {
+      when {
+        environment {
+          name: "myVar", value: "origin/master"
+        }
+      }      
+
       steps {
         sh "echo ${myVar}"
       }
