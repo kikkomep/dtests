@@ -16,7 +16,9 @@ pipeline {
         script {
           currentBuild.upstreamBuilds?.each { b ->
               echo b.getFullProjectName()
-              // echo b.getRawBuild()
+              for (Map e : b.getRawBuild()) {
+                echo "${e.key} ${e.value}"
+              }
           }
         }
       }
