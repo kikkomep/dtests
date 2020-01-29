@@ -1,5 +1,9 @@
 myVar = "Initial value"
 
+EDDL_REPOSITORY = "https://github.com/deephealthproject/eddl.git"
+EDDL_BRANCH = "master"
+EDDL_REVISION = sh(returnStdout: true, script: "git ls-remote ${EDDL_REPOSITORY} ${EDDL_BRANCH} | awk '{print \$1}'").trim()
+
 pipeline {
   agent {
     node { label 'docker && linux && !gpu' }
@@ -44,6 +48,7 @@ pipeline {
 
       steps {
         sh "echo ${myVar}"
+        sh "echo ${EDDL_REVISION}"
       }
     }
   }
