@@ -19,6 +19,8 @@ pipeline {
               for (Map e : b.getBuildVariables()) {
                 println e
               }
+
+              def rb = b.getRawBuild()
           }
         }
       }
