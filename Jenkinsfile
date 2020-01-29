@@ -39,7 +39,7 @@ pipeline {
 
     stage('Use configured variable') {
       when {
-        environment name: "myVar", value: "origin/master"
+        expression { "$myVar" == "origin/master" }
       }
 
       steps {
