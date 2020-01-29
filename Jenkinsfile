@@ -15,6 +15,7 @@ pipeline {
       steps {
         sh 'git fetch --tags'
         sh 'printenv'
+        echo "{myVar}"
         script {
           currentBuild.upstreamBuilds?.each { b ->
             echo b.getFullProjectName()
