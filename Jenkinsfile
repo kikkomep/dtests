@@ -19,7 +19,7 @@ pipeline {
             b.getBuildVariables().each {
               key, value -> L:{
                 println "$key: $value"
-                if ( key == "GIT_BRANCH"){
+                if ( "$key" == "GIT_BRANCH"){
                   myVar = "$value"
                   echo "$value --- $myVar"
                 }
