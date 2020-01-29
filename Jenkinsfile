@@ -18,8 +18,8 @@ pipeline {
             echo b.getFullProjectName()
             for (Map e : b.getBuildVariables()) {
               println "$e.key ==> $e.value"
-              if ( e.key == "GIT_BRANCH"){
-                myVar = e.value
+              if ( e.$key == "GIT_BRANCH"){
+                myVar = e.$value
               }
             }
           }
