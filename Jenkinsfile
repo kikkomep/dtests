@@ -1,3 +1,5 @@
+myVar = "Initial value"
+
 pipeline {
   agent {
     node { label 'docker && linux && !gpu' }
@@ -25,9 +27,9 @@ pipeline {
                 }
               }
             }
-            for (Map e : b.getBuildVariables()) {
-              println "$e.key ==> $e.value"
-            }
+            // for (Map e : b.getBuildVariables()) {
+            //   println "$e.key ==> $e.value"
+            // }
           }
         }
       }
