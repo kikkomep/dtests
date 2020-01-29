@@ -39,7 +39,7 @@ pipeline {
 
     stage('Use configured variable') {
       steps {
-        sh 'echo $myVar'
+        sh "echo ${myVar}"
       }
     }
   }
