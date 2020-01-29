@@ -16,10 +16,18 @@ pipeline {
         script {
           currentBuild.upstreamBuilds?.each { b ->
             echo b.getFullProjectName()
+            b.getBuildVariables().each {
+              entry -> {
+                println "$entry.key: $entry.value"
+                if ( entry.key == "GIT_BRANCH"){
+                  myVar = entry.value
+                }
+              }
+            }
             for (Map e : b.getBuildVariables()) {
               println "$e.key ==> $e.value"
               if ( e.$key == "GIT_BRANCH"){
-                myVar = e.$value
+                
               }
             }
           }
