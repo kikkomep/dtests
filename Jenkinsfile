@@ -15,12 +15,22 @@ pipeline {
         sh 'printenv'
         script {
           currentBuild.upstreamBuilds?.each { b ->
-              echo b.getFullProjectName()
-              for (Map e : b.getBuildVariables()) {
-                println "$e.key ==> $e.value"
-              }              
+            echo b.getFullProjectName()
+            for (Map e : b.getBuildVariables()) {
+              println "$e.key ==> $e.value"
+              if ( e.key == "GIT_BRANCH"){
+                myVar = e.value
+              }
+            }
           }
         }
+      }
+    }
+
+
+    stage('Use configured variable') {
+      steps {
+        sh 'echo $myVar'
       }
     }
   }
