@@ -19,7 +19,7 @@ pipeline {
               for (Map e : b.getBuildVariables()) {
                 println e
               }
-
+              echo "Printing Environment..."
               def rb = b.getRawBuild()
               for(Map e: rb.getEnvironment()){
                 println e
