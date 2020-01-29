@@ -17,13 +17,8 @@ pipeline {
           currentBuild.upstreamBuilds?.each { b ->
               echo b.getFullProjectName()
               for (Map e : b.getBuildVariables()) {
-                println e
-              }
-              echo "Printing Environment..."
-              def rb = b.getRawBuild()
-              for(Map e: rb.getEnvironment()){
-                println e
-              }
+                println "$e.key ==> $e.value"
+              }              
           }
         }
       }
