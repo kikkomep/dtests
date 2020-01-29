@@ -20,8 +20,9 @@ pipeline {
         sh 'git fetch --tags'
         sh 'printenv'
         echo "${myVar}"
-        EDDL_REVISION = sh(returnStdout: true, script: "git ls-remote ${EDDL_REPOSITORY} ${EDDL_BRANCH} | awk '{print \$1}'").trim()
+        
         script {
+          EDDL_REVISION = sh(returnStdout: true, script: "git ls-remote ${EDDL_REPOSITORY} ${EDDL_BRANCH} | awk '{print \$1}'").trim()
           currentBuild.upstreamBuilds?.each { b ->
             echo b.getFullProjectName()
             b.getBuildVariables().each {
