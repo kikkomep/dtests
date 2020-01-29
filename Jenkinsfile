@@ -21,6 +21,7 @@ pipeline {
                 println "$key: $value"
                 if ( key == "GIT_BRANCH"){
                   myVar = "$value"
+                  echo "$value --- $myVar"
                 }
               }
             }
