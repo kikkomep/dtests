@@ -17,7 +17,7 @@ pipeline {
           currentBuild.upstreamBuilds?.each { b ->
             echo b.getFullProjectName()
             b.getBuildVariables().each {
-              key, value -> {
+              key, value -> L:{
                 println "$key: $value"
                 if ( key == "GIT_BRANCH"){
                   myVar = "$value"
