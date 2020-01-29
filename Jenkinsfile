@@ -26,9 +26,6 @@ pipeline {
             }
             for (Map e : b.getBuildVariables()) {
               println "$e.key ==> $e.value"
-              if ( e.$key == "GIT_BRANCH"){
-                
-              }
             }
           }
         }
