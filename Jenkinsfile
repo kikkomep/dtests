@@ -2,7 +2,7 @@ myVar = "Initial value"
 
 EDDL_REPOSITORY = "https://github.com/deephealthproject/eddl.git"
 EDDL_BRANCH = "master"
-EDDL_REVISION = sh(returnStdout: true, script: "git ls-remote ${EDDL_REPOSITORY} ${EDDL_BRANCH} | awk '{print \$1}'").trim()
+EDDL_REVISION = ""
 
 pipeline {
   agent {
@@ -20,6 +20,7 @@ pipeline {
         sh 'git fetch --tags'
         sh 'printenv'
         echo "${myVar}"
+        EDDL_REVISION = sh(returnStdout: true, script: "git ls-remote ${EDDL_REPOSITORY} ${EDDL_BRANCH} | awk '{print \$1}'").trim()
         script {
           currentBuild.upstreamBuilds?.each { b ->
             echo b.getFullProjectName()
